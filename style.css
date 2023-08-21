@@ -38,6 +38,9 @@ button{
 .pause{
     background-color: red;
 }
+.reset{
+    background-color: rgb(219, 97, 10);
+}
 .pause:disabled{
     background-color: rgb(167, 165, 165);
 }
