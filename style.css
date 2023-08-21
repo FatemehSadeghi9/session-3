@@ -5,11 +5,16 @@ form{
 }
 body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 input, button{
     height: 30px;
     margin: 10px;
     border-radius: 10px;
     text-align: center;
+}
+p{
+    font-size: 20px;
 }
