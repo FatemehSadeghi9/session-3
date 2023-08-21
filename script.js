@@ -7,14 +7,20 @@
 //     document.getElementById('information').style.color="green"
 //     }, 2000)
 // }
-var counter=0;
+var count=0;
 var countInterval;
+var onloadcounter=function(){
+    count= Number(document.cookie.substr(6))
+     document.getElementById('counter').innerHTML=count
+}
 var onclickstart=function(){ 
-   countInterval= setInterval(function(){
-    document.getElementById('counter').innerHTML=counter+=1
+    countInterval= setInterval(function(){
+    count+=1
+    document.cookie="count="+count
+    document.getElementById('counter').innerHTML=count
     }, 1000)
     document.getElementsByClassName('start')[0].disabled=true;
-    document.getElementsByClassName('pause')[0].disabled=false;
+    document.getElementsByClassName('pause')[0].disabled=false;  
 }
 var onclickpause=function(){
     clearInterval(countInterval)
