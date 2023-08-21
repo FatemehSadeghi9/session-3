@@ -10,13 +10,15 @@
 var count=0;
 var countInterval;
 var onloadcounter=function(){
-    count= Number(document.cookie.substr(6))
-     document.getElementById('counter').innerHTML=count
+    // count= Number(document.cookie.substr(6))
+    count=Number(Cookies.get('count'))
+    document.getElementById('counter').innerHTML=count
 }
 var onclickstart=function(){ 
     countInterval= setInterval(function(){
     count+=1
-    document.cookie="count="+count
+    Cookies.set('count', count)
+    // document.cookie="count="+count
     document.getElementById('counter').innerHTML=count
     }, 1000)
     document.getElementsByClassName('start')[0].disabled=true;
