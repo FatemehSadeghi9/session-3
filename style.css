@@ -1,0 +1,15 @@
+form{
+    display: flex;
+    flex-direction: column;
+    max-width: 150px;
+}
+body{
+    display: flex;
+    justify-content: center;
+}
+input, button{
+    height: 30px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
