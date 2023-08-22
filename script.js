@@ -7,11 +7,16 @@
 //     document.getElementById('information').style.color="green"
 //     }, 2000)
 // }
-var count=0;
 var countInterval;
 var onloadcounter=function(){
-    // count= Number(document.cookie.substr(6))
-    count=Number(Cookies.get('count'))
+    if (!Cookies.get('count')) {
+        Cookies.set('count', 0)
+    }
+
+    const count = Cookies.get('count');
+    if ( count !== "0" ){
+        document.getElementsByClassName('reset')[0].disabled=false;
+    }
     document.getElementById('counter').innerHTML=count
     var previouseState= Cookies.get('state')
     if (previouseState==='started' ){
@@ -20,7 +25,7 @@ var onloadcounter=function(){
 }
 var onclickstart=function(){ 
     countInterval= setInterval(function(){
-    count+=1
+    const count = Number(Cookies.get('count')) + 1;
     Cookies.set('count', count)
     Cookies.set('state', 'started')
     // document.cookie="count="+count
@@ -42,9 +47,8 @@ var onclickreset=function(){
     clearInterval(countInterval)
     document.getElementsByClassName('start')[0].disabled=false;
     document.getElementsByClassName('pause')[0].disabled=true;
-    document.getElementsByClassName('reset')[0].disabled=false;
-    count=0;
+    document.getElementsByClassName('reset')[0].disabled=true;
     Cookies.set('state', 'reseted')
-     Cookies.set('count', count)
-    document.getElementById('counter').innerHTML=count
+    Cookies.set('count', 0)
+    document.getElementById('counter').innerHTML=0
 }
